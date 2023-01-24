@@ -28,8 +28,6 @@ function App() {
 
   const handleChatBoxMovement = (action, key) => {
     console.log("Handle chat box movement called");
-    handleButtonOpenUpdate(action, key);
-
     let defaultValue = [2, 18, 34];
     let newValue = [...defaultValue]
 
@@ -37,19 +35,36 @@ function App() {
     /*We get a string passed from the function call that determines if we are closing or opening, if closing we reset all positions to default */
   
       if (action === "close") {
-        setChatButtonPositions([2, 18, 34]);
+        handleButtonOpenUpdate(action, key);
+        if (chatButtonOpen[0] && !chatButtonOpen[1]) {
+          setChatButtonPositions([2, 18, 34]);
+        } else if (chatButtonOpen && chatButtonOpen[1]) {
+          setChatButtonPositions([2, 34, 50]);
+        }
       } else {
-        switch (key) {
-          case "0":
-            /*This case is when the first box is clicked we move the second and third */
-          setChatButtonPositions([2, defaultValue[1] + 16, defaultValue[2] + 16]);
-            break;
-          case "1":
-            /*This is when the second is clicked and we only move the third box over */
-            setChatButtonPositions([2, 18, defaultValue[2] + 16]);
-            break;
-        } 
+        if (!chatButtonOpen[0] && !chatButtonOpen[1]) {
+          switch (key) {
+            case "0":
+              /*This case is when the first box is clicked we move the second and third */
+            setChatButtonPositions([2, defaultValue[1] + 16, defaultValue[2] + 16]);
+              break;
+            case "1":
+              /*This is when the second is clicked and we only move the third box over */
+              setChatButtonPositions([2, 18, defaultValue[2] + 16]);
+              break;
+          } 
+        } else if (chatButtonOpen[0] || chatButtonOpen[1]) {
+          switch (key) {
+            case "0": 
+            setChatButtonPositions([2, defaultValue[1] + 16, defaultValue[2] + 32]);
+            case "1": 
+            setChatButtonPositions([2, defaultValue[1] + 16, defaultValue[2] + 32]);
+          }
+        }
+        
+
       }
+      handleButtonOpenUpdate(action, key);
      
   };
 
