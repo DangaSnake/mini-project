@@ -49,10 +49,10 @@
   height: 300px;
   position: absolute;
   bottom: 110px;
-  right: 550px;
+  right: 500px;
   opacity: 0;
+  transition: opacity 1.5s ease-in-out;
   transform: scaleX(-1) rotate(-45deg);
-  animation: fade-in 1.5s forwards 2.7s;
 }
 
 
@@ -74,15 +74,54 @@
   display: flex;
   flex-direction: row;
   position: fixed;
+  justify-content: space-around;
   bottom: 0;
-  width: 800px;
-  right: 0;
+  width: 450px;
+  right: 1550px;
   height: 200px;
+  animation: chat-bar-move-in 1.8s ease-in-out 1s forwards;
+}
+
+@keyframes chat-bar-move-in {
+  0% {
+    right: 1550px;
+  }
+
+  45% {
+    right: 140px
+  }
+
+  60% {
+    right: 240px
+  }
+
+  75% {
+    right: 150px
+  }
+
+  80% {
+    right: 165px
+  }
+
+  90% {
+    right: 150px
+  }
+
+  95% {
+    right: 155px;
+  }
+  
+  100% {
+    right: 150px;
+  }
 }
 
 .chat-button-div {
-  height: 30px;
-  width: 120px;
+  height: 200px;
+  width: auto;
   position: relative;
+  flex: 1;
   bottom: 0;
+  display: flex;
+  align-items: flex-end;
 }

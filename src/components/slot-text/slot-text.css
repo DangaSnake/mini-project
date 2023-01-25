@@ -1,0 +1,42 @@
+.main-text {
+    font-size: 15vh;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+    font-family: "Roboto", sans-serif;
+    opacity: 0;
+    animation: fade-in 1s forwards 1.5s;
+}
+
+.main-text:nth-child(1) {
+    color: #1a1acf;
+}
+
+.main-text:nth-child(2) {
+    color: rgb(238, 255, 5);
+}
+
+.main-text:nth-child(3) {
+    color: rgb(255, 4, 209);
+}
+  
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+
+.text-holder {
+    scrollbar-width: none;
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    transition: scroll-top 1s ease-in;
+}
+

@@ -1,2 +1,3 @@
 1) Keywords do not highlight one re-open of closed chatbox
-2) can not handle being sent two messages from user before one is completed
+2) can not handle being sent two messages from user before one is completed FIXED
+
