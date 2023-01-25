@@ -5,9 +5,6 @@ import SlotText from "./components/slot-text/slot-text";
 
 function App() {
 
- 
-
-
   useEffect(() => {    
     setTimeout(() => {
       let arrow = document.getElementById("arrow-doodle");
@@ -15,8 +12,6 @@ function App() {
       arrow.style.animation = "arrow-bounce 1s ease-in-out infinite";
     }, 3000);
   }, []); 
-
-
 
   return (
     <div className="App">

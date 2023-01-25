@@ -228,8 +228,7 @@ const ChatButton = (props) => {
         });
 
 
-        /*for displaying the response, we were having a bug before so we split the removal of the loading message
-        and the actual adding of the message between two timeouts */
+        /*for displaying the response*/
         let messageDelay = Math.floor(Math.random() * (3000 - 1500 + 1) + 1500)
         let newArray = [];
         setTimeout(() => {
@@ -248,7 +247,7 @@ const ChatButton = (props) => {
         }, messageDelay + 50);
     }
 
-    /*below for updating our "inputValue" state variable with whatever is typed in the input */
+    /*updating our "inputValue" state variable with whatever is typed in the input */
     const handleChange = (event) => {
         setInputValue(event.target.value);
     }
