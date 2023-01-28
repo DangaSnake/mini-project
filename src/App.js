@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
-import "./App.css";
+import classNames from "classnames";
+
 import ChatButton from "./components/chat-button/chat-button";
-import SlotText from "./components/slot-text/slot-text";
+import SlotText from "./components/slot-text/SlotText.tsx";
+
+import "./App.scss";
 
 function App() {
+  const [animateArrow, setAnimateArrow] = useState(false);
 
-  useEffect(() => {    
+  useEffect(() => {
     setTimeout(() => {
-      let arrow = document.getElementById("arrow-doodle");
-      arrow.style.opacity = 1;
-      arrow.style.animation = "arrow-bounce 1s ease-in-out infinite";
+      setAnimateArrow(true);
     }, 3000);
-  }, []); 
+  }, []);
 
   return (
     <div className="App">
@@ -20,7 +22,12 @@ function App() {
         <span className="title-text">To</span>
         <SlotText />
       </div>
-      <img alt="Arrow Doodle" src="/arrow-doodle.png" className="arrow-doodle" id="arrow-doodle" />
+      <img
+        alt="Arrow Doodle"
+        src="/mini-project/arrow-doodle.png"
+        className={classNames("arrow-doodle", animateArrow && "animating")}
+        id="arrow-doodle"
+      />
       <div className="chat-bar">
         <div className="chat-button-div">
           <ChatButton key="0" name="DevBot" myKey="0" />

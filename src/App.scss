@@ -53,8 +53,12 @@
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
   transform: scaleX(-1) rotate(-45deg);
-}
 
+  &.animating {
+    opacity: 1;
+    animation: arrow-bounce 1s ease-in-out infinite;
+  }
+}
 
 @keyframes arrow-bounce {
   0% {
